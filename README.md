@@ -96,6 +96,20 @@ php artisan key:generate
 php artisan migrate
 ```
 
+### ⚙️ Environment Variables
+
+Copy `.env.example` to `.env` and configure:
+
+```env
+API_KEY=your_api_key_here
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_database_here
+DB_USERNAME=your_username_here
+DB_PASSWORD=your_password_here
+```
+
 ### Run Project
 ```bash
 php artisan serve --port=8001
