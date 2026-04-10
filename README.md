@@ -1,9 +1,8 @@
 # 📊 Lead Tracker API (Laravel)
 
 ## 🧾 Project Overview
-Lead Tracker API is a RESTful API built with Laravel as part of a full-stack developer technical assessment for The Bali Houses.  
-
-The project is designed to demonstrate clean backend architecture, including Service Layer, Repository Pattern, and a standardized custom API response structure for scalable and maintainable.
+Lead Tracker API is a RESTful API built with Laravel 12 for managing lead data as part of a full-stack developer technical assessment for The Bali Houses.  
+Featuring a layered architecture (Controller → Service → Repository) and a standardized API response system to ensure consistency across endpoints.
 
 ---
 
@@ -35,7 +34,6 @@ The project is designed to demonstrate clean backend architecture, including Ser
 - GET /api/health
 
 ### Leads
-- GET /api/health
 - GET /api/leads
 - POST /api/leads
 - PATCH /api/leads/{id}
@@ -51,18 +49,25 @@ Controller → Service → Repository → Model
 
 ## 📁 Project Structure
 ```
+This project follows a layered architecture:
+
+- Controller: Handle HTTP requests
+- Service: Business logic layer
+- Repository: Data access layer
+- Model: Eloquent ORM models
+
 app/
-├── Enums/
-├── Helpers/
 ├── Http/
 │   ├── Controllers/
 │   ├── Middleware/
 │   ├── Requests/
-├── Models/
-├── Providers/
+├── Services/
 ├── Repositories/
 │   ├── Interfaces/
-├── Services/
+├── Models/
+├── Enums/
+├── Helpers/
+├── Providers/
 routes/
 ```
 
@@ -71,10 +76,18 @@ routes/
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/your-repo/lead-tracker.git
+git clone https://github.com/ilhamdjavu2/lead-tracker-backend.git
+```
+```bash
 cd lead-tracker-backend
+```
+```bash
 composer install
+```
+```bash
 cp .env.example .env
+```
+```bash
 php artisan key:generate
 ```
 
@@ -91,16 +104,39 @@ php artisan serve --port=8001
 ## 📬 Postman Collection
 
 👉 Import Postman Collection:
+```bash
 https://documenter.getpostman.com/view/1813672/2sBXirk8dd
+```
 
 ---
 
 ## 🧾 Example cURL
 
 ```bash
-curl --location '/api/health' --header 'Accept: application/json' --header 'x-api-key;'
+curl --location 'http://localhost:8001/api/health' --header 'Accept: application/json' --header 'x-api-key;'
 ```
 
+### Api Response Example
+```bash
+{
+    "success": true,
+    "message": "Leads Found",
+    "result": {
+        "draw": 0,
+        "recordsTotal": 1,
+        "recordsFiltered": 1,
+        "data": [],
+        "disableOrdering": false
+    }
+}
+```
+
+### Error Response Example
+```bash
+{
+    "error": "The name and email fields are required"
+}
+```
 ---
 
 ## 👨‍💻 Author
