@@ -9,7 +9,7 @@ The project is designed to demonstrate clean backend architecture, including Ser
 
 ## ⚙️ System Requirements
 
-- PHP >= 8.2.0
+- PHP >= 8.2
 - Composer >= 2.9
 - MySQL >= 8.0
 - Laravel 12
@@ -18,25 +18,28 @@ The project is designed to demonstrate clean backend architecture, including Ser
 
 ## 🚀 Tech Stack
 
-- Laravel Framework
-- MySQL 8
+- Laravel Framework (Backend API)
+- MySQL 8 (Database)
 - Eloquent ORM
 - Service Layer Pattern
 - Repository Pattern
-- RESTful API
-- Custom API Response
-- Pagination Standarization
+- REST API
+- Custom API Response Wrapper
+- Standardized Pagination
 
 ---
 
 ## 📦 API Endpoints
 
-### Get All Leads
-GET /api/health
-GET /api/leads
-POST /api/leads
-PATCH /api/leads/{id}
-DELETE /api/leads/{id}
+### Health Check
+- GET /api/health
+
+### Leads
+- GET /api/health
+- GET /api/leads
+- POST /api/leads
+- PATCH /api/leads/{id}
+- DELETE /api/leads/{id}
 
 ---
 
@@ -47,7 +50,7 @@ Controller → Service → Repository → Model
 ---
 
 ## 📁 Project Structure
-
+```
 app/
 ├── Enums/
 ├── Helpers/
@@ -61,6 +64,7 @@ app/
 │   ├── Interfaces/
 ├── Services/
 routes/
+```
 
 ---
 
@@ -72,16 +76,6 @@ cd lead-tracker-backend
 composer install
 cp .env.example .env
 php artisan key:generate
-```
-
-### Setup Database (.env)
-```
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=lead_tracker
-DB_USERNAME=root
-DB_PASSWORD=
 ```
 
 ### Migration
